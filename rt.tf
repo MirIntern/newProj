@@ -43,6 +43,6 @@ resource "aws_route_table_association" "ansibleAssoc" {
 
 resource "aws_route_table_association" "jenkRTSub" {
 
-	subnet_id = aws_subnet.backEndJenkins.id
+	subnet_id = aws_subnet.jenkins.id
 	route_table_id = aws_route_table.jenkinsRouteTable.id
 }
