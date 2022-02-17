@@ -39,7 +39,7 @@ resource "aws_launch_template" "t2microAnsibleTemplate" {
 }
 
 resource "aws_launch_template" "t3microMinikube" {
-	image_id = 04505e74c0741db8d
+	image_id = data.aws_ami.ubuntu.id
 	instance_type = "t3.micro"
 	network_interfaces {
 	 associate_public_ip_address = true
