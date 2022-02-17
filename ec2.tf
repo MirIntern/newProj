@@ -8,6 +8,23 @@ data "aws_ami" "amazonLinux" {
 	}
 }
 
+data "aws_ami_ids" "ubuntu" {
+  owners = ["099720109477"]
+  most_recent = true
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/ubuntu-20.04-amd64-server-*"]
+  }
+  filter {
+        name = "virtualization-type"
+        values = ["hvm"]
+  }
+  filter {
+    name   = "root-device-type"
+    values = ["ebs"]
+  }
+}
+
 resource "aws_launch_template" "t2microAnsibleTemplate" {
 	image_id = data.aws_ami.amazonLinux.id
 	instance_type = "t2.micro"
@@ -22,7 +39,7 @@ resource "aws_launch_template" "t2microAnsibleTemplate" {
 }
 
 resource "aws_launch_template" "t3microMinikube" {
-	image_id = data.aws_ami.amazonLinux.id
+	image_id = 04505e74c0741db8d
 	instance_type = "t3.micro"
 	network_interfaces {
 	 associate_public_ip_address = true
