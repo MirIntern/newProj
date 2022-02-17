@@ -23,7 +23,7 @@ resource "aws_launch_template" "t2microAnsibleTemplate" {
 
 resource "aws_launch_template" "t3microMinikube" {
 	image_id = "ami-04505e74c0741db8d"
-	instance_type = "t3.micro"
+	instance_type = "t2.medium"
 	network_interfaces {
 	 associate_public_ip_address = true
 	 security_groups = [aws_security_group.allowPort80Ingress.id, aws_security_group.minikube.id, aws_security_group.allowAllEgress.id, aws_security_group.sshAccess.id]
