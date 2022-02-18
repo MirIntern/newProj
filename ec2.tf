@@ -52,7 +52,7 @@ resource "aws_launch_template" "t2microTemplateJenk" {
         tags = {
                 name = "Jenkins"
         }
-        user_data = filebase64("${path.module}/jenkinsdata.sh")
+        user_data = filebase64("./jenkinsdata.sh")
 }
 
 resource "aws_autoscaling_group" "minikubeServerScaleGrp" {
